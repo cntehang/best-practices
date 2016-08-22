@@ -3,7 +3,9 @@
 ## Resources
 
 [k8s in aws source code][k8s-aws] 
+
 [k8s the hard way][hardway] manully build k8s cluster using google container engine. 
+
 [slef-hosted k8s] is a talk about hosting k8s uisng CoreOS. 
 
 
