@@ -18,6 +18,15 @@ Java 8 brings new date and time funtions to the language. Datetime should use `j
 [Awesome Java][awesome-java] is a curated list of awesome Java frameworks, libraries and software. 
 
 
+## Exception Handling
+
+When use other lib/framework, only catch the exception that you can handle. For example, you may want to retry sending data for network error exception. For exceptions that you cannot handle, don't catch them -- let the UI or outer callers to handle them. 
+
+When developing a library/framework, throw two types of exceptions: one for standard programming errors such as null parameter, wrong type etc. For this type, using the standard exception. Another type is business-related, for example, the password is too short or too simple, you throw a domain-specific exception such as InvalidPasswordException. 
+
+For a typical microservice, you should define a base exception type that inherites `RuntimeException` class. We purposely use this as our parent exception class because it is a **unchecked** exceptio.  
+
+
 [awesome-java]: https://github.com/akullpp/awesome-java
 [datetime]: http://www.nurkiewicz.com/2016/08/guide-to-time-and-date-in-java.html
 [practices]: http://www.javapractices.com/home/HomeAction.do
