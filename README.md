@@ -10,8 +10,9 @@ We use Kubernetes(k8s) as our cloud platform. It provides service runtime, secui
 
 It provides high availablilty by cluster DNS.  ConfigMap and Secrets that can be used to store environment variables.
 
-## 2. Application Loggin: Spring Cloud Sleuth
-Spring Cloud Sleuth implements a distributed tracing solution. The https://cloud.spring.io/spring-cloud-sleuth/ has more information.
+## 2. Application Loggin: SLF4J + logback
+
+We don't use Spring Cloud Sleuth for two reasons: 1)As a distributed logging library, it is a more complicated than the traditional single-system logging library such as logback. 2) It doesn't support gRPC. gRPC is used as one of two major IPC channels. 
 
 ## 3. Event System: Spring Cloud Stream with Kafka
 Most inter-service communication and system integration can use an event middleware as their communication channel to build a loosely-couple distributed system. Spring Cloud Stream (https://cloud.spring.io/spring-cloud-stream/) can use Kafka as its underlying communication channel to provide the functions of an event middleware.
