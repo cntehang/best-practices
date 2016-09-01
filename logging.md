@@ -11,7 +11,7 @@ There are some well-known logging requirements:
 Using AOP conflicts with the first two items of our requirement. It decorates a method call and introduces the complexity of AOP syntax. Giving the importance of logging, the explict logging statement in code gives programmer fine control and clear intention. 
 
 ## logback
-* In gradle configuration file, add :
+* In gradle configuration file, add:  
 dependencies {
  	//bridge logging from JCL to SLF4j
  	compile 'org.slf4j:jcl-over-slf4j:1.7.12'
@@ -20,6 +20,7 @@ dependencies {
 	compile 'ch.qos.logback:logback-classic:1.1.3'
 }
 In classpath add logback.xml:
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
@@ -43,13 +44,15 @@ In classpath add logback.xml:
     <appender-ref ref="STDOUT" /> 
   </root>
 </configuration>
+```
 * For a web application you only need spring-boot-starter-web since it depends transitively on the logging starter。
-
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
     <logger name="org.springframework.web" level="DEBUG"/>
 </configuration>
+```
 
 
 
