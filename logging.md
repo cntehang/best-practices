@@ -12,6 +12,7 @@ Using AOP conflicts with the first two items of our requirement. It decorates a 
 
 ## logback
 * In gradle configuration file, add:  
+```xml
 dependencies {
  	//bridge logging from JCL to SLF4j
  	compile 'org.slf4j:jcl-over-slf4j:1.7.12'
@@ -19,6 +20,7 @@ dependencies {
 	// Logback
 	compile 'ch.qos.logback:logback-classic:1.1.3'
 }
+```
 In classpath add logback.xml:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
