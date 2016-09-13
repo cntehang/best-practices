@@ -1,12 +1,9 @@
+
 ##一. Status Code
-### 1. CANCELLED
-调用者取消操作
-### 2. UNKNOWN
-未知地址，API
-### 3. INVALID_ARGUMENT
-无效的请求？
-### 4. DEADLINE_EXCEEDED
-超过最后期限？
+1. CANCELLED： 调用者取消操作
+2. UNKNOWN：未知地址，API
+3. INVALID_ARGUMENT： 无效的请求？
+4. DEADLINE_EXCEEDED：超过最后期限？
 ### 5. NOT_FOUND
 没有找到请求的资源
 ### 6. ALREADY_EXISTS
