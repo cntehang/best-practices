@@ -1,4 +1,7 @@
 
+## gRPC DTO
+命名和domain entity 相对应的gRPC class 在原class前加上前缀Grpc。比如Proudct在gRPC的对应类为GrpcProduct.
+
 ##一. Status Code
 1. CANCELLED： 调用者取消操作
 2. UNKNOWN：未知地址，API
