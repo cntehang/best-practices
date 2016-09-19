@@ -83,4 +83,14 @@ catch(Exception e){
   Status status = Status.fromThrowable(e);
 }
 ```
+
+## gRPC 应用
+gRPC相关的处理必须与业务相关的service分离解耦.   
+对gRPC的request和reply的数据，转化为domain或者原始数据类型以后才传入business application。  
+如果有需要或者为了代码清晰，可以将gRPC相关的数据验证和转换等操作从gRPC   service里抽取出来成一个class，但不能跟普通业务操作的class放在一起。
+
+## protobuf的Style
+所有proto文件参考protobuf的style guide，不使用java的style。  
+message用首字母大写的驼峰，属性或者字段名用下划线。  
+
 # 欢迎补充
