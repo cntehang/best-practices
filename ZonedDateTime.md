@@ -60,7 +60,11 @@ Mon Sep 26 09:27:50 CST 2016
 ![QQ20160926-1@2x.png](image/430E64ABD8C4D909CC2F3E4B8FE4400A.png)
 
 目前的方案是两个：
+
 1. 使用tinyblob来存储
+
   在程序上读写ZonedDateTime并没有任何问题，在不需要人为直接查看读写MySQL存储的数据时，直接使用tinyblob即可。
+
 2. 引入hibernate-java8
+
   由于jpa 2.1是在java 8之前就已经推出了，所以不支持java 8里面新增的时间API，hibernate为了适配java 8，推出了hibernate-java8这个库，可以解决一部分问题，但是引入了新的问题：读取出来的ZonedDateTime，时区会变为当地时区。例如保存当前的UTC时间，读取出来的是UTC转换过来的当地时区时间。
