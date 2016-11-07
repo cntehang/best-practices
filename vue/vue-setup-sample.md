@@ -186,6 +186,21 @@ export default {
 In the above code, we map the `getProducts` getter meethod to a local computed property with a name `products`. 
 
 ## 6. Get Products Using a REST Request
+We changed `config/dev.env.js` as the following to read CTP project key and access token from the enviornment variables. 
+
+```js
+var merge = require('webpack-merge')
+var prodEnv = require('./prod.env')
+
+module.exports = merge(
+  prodEnv,
+  {
+    NODE_ENV: '"development"',
+    ACCESS_TOKEN: `'${process.env.ACCESS_TOKEN}'`,
+    PROJECT_KEY: `'${process.env.PROJECT_KEY}'`
+})
+
+```
 
 ### 6.1. Install `vue-resource`
 Run `npm install --save vue-resource` to install `vue-resource` that is used to make REST API requests. 
@@ -215,7 +230,7 @@ export const mutations = {
 }
 ```
 
-#### 6.4. Create the `FETCH_PRODUCTS` Action
+### 6.4. Create the `FETCH_PRODUCTS` Action
 Create the `src/vuex/modules/products/actions.js` as the following: 
 ```js
 iimport { http } from 'vue'
@@ -270,6 +285,7 @@ export default {
 
 In the above code, we map the `fetchProducts` to a local method with the same name, then call it in `created()` lifecycle event. 
 
-## 7. The Router with `vue-router`
-`npm install --save vue-router`
+## 7. Add Router
+
+Run `npm install --save vue-router`
 
