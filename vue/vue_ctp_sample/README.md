@@ -1,4 +1,5 @@
 # Vue Sample Project
+!!! Please copy this folder to a different place not under Git version control to run it. This is part of the Vue document to show the detail process to scaffold a project. 
 
 ## Set CTP Enviornment Variables
 First create the following two enviornment variables to your CTP environment values:
