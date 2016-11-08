@@ -1,5 +1,5 @@
 # Vue Setup Sample
-This document descript the steps to scaffold a project and add more components to make it a good fit for non-trivial project. 
+This document descript the steps to scaffold a project and add more components to make it a good fit for non-trivial project. The sample project is in the [vue_ctp_sample](./vue_ctp_sample).
 
 ## 1. Scaffold a Project 
 
@@ -186,7 +186,7 @@ export default {
 In the above code, we map the `getProducts` getter meethod to a local computed property with a name `products`. 
 
 ## 6. Get Products Using a REST Request
-We changed `config/dev.env.js` as the following to read CTP project key and access token from the enviornment variables. 
+We changed `config/dev.env.js` as the following to read CTP project key and access token from the enviornment variables. The `ACCESS_TOKEN` should have thhe `view_products` scope.
 
 ```js
 var merge = require('webpack-merge')
@@ -210,13 +210,12 @@ In `src/main.js`, add the following lines:
 
 ```js
 import VueResource from 'vue-resource'
-
-Vue.use(VueResource);
-
+Vue.use(VueResource)
 // set the API root so we can use relative url's in our actions.
-Vue.http.options.root = 'https://api.sphere.io/{PROJECT_KEY}/';
-Vue.http.headers.common['Authorization'] = 'Bearer {ACCESS_TOKEN}';
+Vue.http.options.root = `https://api.sphere.io/${process.env.PROJECT_KEY}`
+Vue.http.headers.common['Authorization'] = `Bearer ${process.env.ACCESS_TOKEN}`
 ```
+
 ### 6.3. Create the `FETCH_PRODUCTS` Mutation
 Create `src/vuex/modules/products/mutations.js` as the following:
 ```js
