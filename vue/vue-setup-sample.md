@@ -59,7 +59,7 @@ import './styles/style.scss'
 ### 4. Create a Product List Page
 First, delete the `src/components/Hello.vue` file. 
 
-Second, create the `src/components/ProductList.vuew` file with the following content: 
+Second, create the `src/components/ProductList.vue` file with the following content: 
 ```
 <template>
   <table class="table table-hover">
@@ -179,7 +179,7 @@ export default {
 ```
 In the above code, we map the `getProducts` getter meethod to a local computed property with a name `products`. 
 
-## 6. Get Products Using a REST Request
+## 6. Set HTTP Client
 
 ### 6.1. Read Environment Variables
 Change `config/dev.env.js` as the following to read CTP project key and access token from the enviornment variables. The `ACCESS_TOKEN` should have thhe `view_products` scope.
@@ -212,13 +212,14 @@ Vue.http.options.root = `https://api.sphere.io/${process.env.PROJECT_KEY}`
 Vue.http.headers.common['Authorization'] = `Bearer ${process.env.ACCESS_TOKEN}`
 ```
 
-### 6.4. Create Mutation Type Constants
+## 7. Use Mutations and Actions
+### 7.1. Create Mutation Type Constants
 Create `src/vuex/modules/products/mutation-types.js` file as the following:
 ```js
 export const FETCH_PRODUCTS = 'products/FETCH_PRODUCTS';
 ```
 
-### 6.5. Create the `FETCH_PRODUCTS` Mutation
+### 7.2. Create the `FETCH_PRODUCTS` Mutation
 Create `src/vuex/modules/products/mutations.js` as the following:
 ```js
 import { FETCH_PRODUCTS } from './mutation-types'
@@ -231,7 +232,7 @@ export const mutations = {
 }
 ```
 
-### 6.6. Create the `FETCH_PRODUCTS` Action
+### 7.3. Create the `FETCH_PRODUCTS` Action
 Create the `src/vuex/modules/products/actions.js` as the following: 
 ```js
 iimport { http } from 'vue'
@@ -243,7 +244,7 @@ export function fetchProducts ({ commit }) {
 }
 ```
 
-### 6.7. Update the Products Store Module
+### 7.4. Update the Products Store Module
 Edit `src/vuex/modules/products/index.js` to have the following content: 
 
 ```js
@@ -263,7 +264,7 @@ export default {
 }
 ```
 
-### 6.8. Fetch Data When ProductList is Created
+### 7.5. Fetch Data When ProductList is Created
 Edit the `<script>` in `src/components/ProductList.vue` to have the following content: 
 
 ```js
@@ -286,7 +287,7 @@ export default {
 
 In the above code, we map the `fetchProducts` action to a local method with the same name, then call it when the component is created. 
 
-## 7. Add Router
+## 8. Add Router
 
 Run `npm install --save vue-router`
 
