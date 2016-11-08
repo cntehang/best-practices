@@ -105,19 +105,13 @@ Optionally, run `npm run dev` to check that the site is up and running correctly
 ### 5.1. Install `vuex`
 Run `npm install --save vuex` to install the state store plugin. 
 
-### 5.2. Create Mutation Type Constants
-Create `src/vuex/modules/products/mutation-types.js` file as the following:
-```js
-export const FETCH_PRODUCTS = 'products/FETCH_PRODUCTS';
-```
-
-### 5.3. Create the `getProducts` Getter
+### 5.2. Create the `getProducts` Getter
 Create `src/vuex/modules/products/getters.js` as the following:
 ```js
 export const getProducts = state => state.products
 ```
 
-### 5.4. Create the Products Store Module
+### 5.3. Create the Products Store Module
 Create `src/vuex/modules/products/index.js` with the following content: 
 
 ```js
@@ -133,7 +127,7 @@ export default {
 }
 ```
 
-### 5.5. Create the Store with the Products Store Module
+### 5.4. Create the Store with the Products Store Module
 Create `src/vuex/store.js` as following: 
 ```js
 import Vue from 'vue'
@@ -153,7 +147,7 @@ export default new Vuex.Store({
 })
 ```
  
-### 5.6. Add the Store to the Root Instance
+### 5.5. Add the Store to the Root Instance
 In `src/main.js`, import the newly created store and add it to the root instance option. After this, all child components can access the store. 
 
 ```js
@@ -169,7 +163,7 @@ new Vue({
 })
 ```
 
-### 5.7. Use the Store in ProductList Component
+### 5.6. Use the Store in ProductList Component
 Add the following content to `src/components/ProductList.vue` to get products data from the store using a computed property. 
 
 ```js
@@ -186,7 +180,9 @@ export default {
 In the above code, we map the `getProducts` getter meethod to a local computed property with a name `products`. 
 
 ## 6. Get Products Using a REST Request
-We changed `config/dev.env.js` as the following to read CTP project key and access token from the enviornment variables. The `ACCESS_TOKEN` should have thhe `view_products` scope.
+
+### 6.1. Read Environment Variables
+Change `config/dev.env.js` as the following to read CTP project key and access token from the enviornment variables. The `ACCESS_TOKEN` should have thhe `view_products` scope.
 
 ```js
 var merge = require('webpack-merge')
@@ -202,10 +198,10 @@ module.exports = merge(
 
 ```
 
-### 6.1. Install `vue-resource`
+### 6.2. Install `vue-resource`
 Run `npm install --save vue-resource` to install `vue-resource` that is used to make REST API requests. 
 
-### 6.2. Add `vue-resource` as Vue middleware
+### 6.3. Add `vue-resource` as Vue middleware
 In `src/main.js`, add the following lines: 
 
 ```js
@@ -216,7 +212,13 @@ Vue.http.options.root = `https://api.sphere.io/${process.env.PROJECT_KEY}`
 Vue.http.headers.common['Authorization'] = `Bearer ${process.env.ACCESS_TOKEN}`
 ```
 
-### 6.3. Create the `FETCH_PRODUCTS` Mutation
+### 6.4. Create Mutation Type Constants
+Create `src/vuex/modules/products/mutation-types.js` file as the following:
+```js
+export const FETCH_PRODUCTS = 'products/FETCH_PRODUCTS';
+```
+
+### 6.5. Create the `FETCH_PRODUCTS` Mutation
 Create `src/vuex/modules/products/mutations.js` as the following:
 ```js
 import { FETCH_PRODUCTS } from './mutation-types'
@@ -229,7 +231,7 @@ export const mutations = {
 }
 ```
 
-### 6.4. Create the `FETCH_PRODUCTS` Action
+### 6.6. Create the `FETCH_PRODUCTS` Action
 Create the `src/vuex/modules/products/actions.js` as the following: 
 ```js
 iimport { http } from 'vue'
@@ -241,7 +243,7 @@ export function fetchProducts ({ commit }) {
 }
 ```
 
-### 6.5. Update the Products Store Module
+### 6.7. Update the Products Store Module
 Edit `src/vuex/modules/products/index.js` to have the following content: 
 
 ```js
@@ -261,7 +263,7 @@ export default {
 }
 ```
 
-### 6.6. Fetch Data When ProductList is Created
+### 6.8. Fetch Data When ProductList is Created
 Edit the `<script>` in `src/components/ProductList.vue` to have the following content: 
 
 ```js
@@ -282,7 +284,7 @@ export default {
 }
 ```
 
-In the above code, we map the `fetchProducts` to a local method with the same name, then call it in `created()` lifecycle event. 
+In the above code, we map the `fetchProducts` action to a local method with the same name, then call it when the component is created. 
 
 ## 7. Add Router
 
