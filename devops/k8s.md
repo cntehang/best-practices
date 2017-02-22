@@ -6,7 +6,7 @@
 
 [k8s the hard way][hardway] manully build k8s cluster using google container engine. 
 
-[slef-hosted k8s] is a talk about hosting k8s uisng CoreOS. 
+[Self-hosted][self-hosting] k8s is a talk about hosting k8s uisng CoreOS. 
 
 
 [k8s-aws]: https://github.com/coreos/coreos-kubernetes/tree/master/multi-node/aws
