@@ -19,3 +19,6 @@ The pros and cons of GraphQL make it hard for a tradeoff analysis. Nonetheless, 
 2. The performance is not a big concern because all users are internal users. 
 
 Therefore, we use GraphQL for the backend administration API. Once we understand the key factors of both the problem and the candidate solutions, the decision becomes easy.  
+
+A good summary of GraphQL benefits is in this blog
+https://enrise.com/2016/10/why-we-use-graphql/
