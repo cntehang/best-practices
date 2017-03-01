@@ -25,4 +25,4 @@ compile('org.hibernate:hibernate-core:5.2.8.Final') {
 }
 ```
 
-Second, set the application property `jap.hibernate.ddl-auto` to `create-only`. 
+Second, set the application property `jpa.hibernate.ddl-auto` to `create-only`. 
