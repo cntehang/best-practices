@@ -7,6 +7,8 @@ is completely ignored unless
 
 Don't add `@Column` if a field has no customization. It is persistented by default. 
 
+For version field that has an annotation of `@Version`, set use the `long` type and set `@NotNull`.
+
 ## Database Initialization
 The correct strategy for database initialization should be `create-only`: initialize tables if they don't exist. However, the Spring builtin version of Hibernate ORM doesn't support this feature. Perform the following steps to enable this feature: 
 
