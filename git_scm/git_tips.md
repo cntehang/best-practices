@@ -38,3 +38,21 @@ export PS1
 ```
 
 This will display the branch name next to the folder name in the bash prompt.
+
+## 3. Git Branch Managment
+### 3.1. Checkout a Remote Branch
+We create a branch in GitHub first thus it's necessary to checkout the remote branch. 
+
+```sh
+git fetch
+git checkout feature-branch
+```
+
+If there are more than one remotes, use the following commands to checkout a branch from `origin`. For other remote, replace the `origin` with a remote name. 
+```sh
+git fetch origin
+git checkout feature-branch origin/feature-branch
+```
+
+To sync with remote branches, use `git fetch -p`. It happens when someone deletes a branch thus you don't delete it again. 
+
